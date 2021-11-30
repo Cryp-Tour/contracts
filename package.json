@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/Cryp-Tour/contracts/issues"
   },
-  "homepage": "https://github.com/Cryp-Tour/contracts#readme"
+  "homepage": "https://github.com/Cryp-Tour/contracts#readme",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.4.0"
+  }
 }

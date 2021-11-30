@@ -1,0 +1,22 @@
+{
+  "name": "contracts",
+  "version": "1.0.0",
+  "description": "Cryp-Tour Contracts",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cryp-Tour/contracts.git"
+  },
+  "author": "Benedict Wetzel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cryp-Tour/contracts/issues"
+  },
+  "homepage": "https://github.com/Cryp-Tour/contracts#readme"
+}

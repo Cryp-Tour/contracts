@@ -7,16 +7,16 @@ import './ocean_utils/Deployer.sol';
 import './ocean_interfaces/ITourTokenAdditional.sol';
 
 /**
- * @title DTFactory contract
+ * @title TTFactory contract
  * @author Ocean Protocol Team
  *
  * @dev Implementation of Ocean DataTokens Factory
  *
- *      DTFactory deploys DataToken proxy contracts.
+ *      TTFactory deploys DataToken proxy contracts.
  *      New DataToken proxy contracts are links to the template contract's bytecode.
  *      Proxy contract functionality is based on Ocean Protocol custom implementation of ERC1167 standard.
  */
-contract DTFactory is Deployer {
+contract TourTokenFactory is Deployer {
     address private tokenTemplate;
     address private communityFeeCollector;
     uint256 private currentTokenCount = 1;
@@ -49,7 +49,7 @@ contract DTFactory is Deployer {
         require(
             _template != address(0) &&
             _collector != address(0),
-            'DTFactory: Invalid template token/community fee collector address'
+            'TTFactory: Invalid template token/community fee collector address'
         );
         tokenTemplate = _template;
         communityFeeCollector = _collector;
@@ -75,14 +75,14 @@ contract DTFactory is Deployer {
     {
         require(
             cap != 0,
-            'DTFactory: zero cap is not allowed'
+            'TTFactory: zero cap is not allowed'
         );
 
         token = deploy(tokenTemplate);
 
         require(
             token != address(0),
-            'DTFactory: Failed to perform minimal deploy of a new token'
+            'TTFactory: Failed to perform minimal deploy of a new token'
         );
         ITourTokenAdditional tokenInstance = ITourTokenAdditional(token);
         require(
@@ -94,7 +94,7 @@ contract DTFactory is Deployer {
                 blob,
                 communityFeeCollector
             ),
-            'DTFactory: Unable to initialize token instance'
+            'TTFactory: Unable to initialize token instance'
         );
         emit TokenCreated(token, tokenTemplate, name);
         emit TokenRegistered(

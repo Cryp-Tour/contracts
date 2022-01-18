@@ -1,11 +1,11 @@
-const TTFactory = artifacts.require("DTFactory");
+const TTFactory = artifacts.require("TTFactory");
 
 /*
  * uncomment accounts to access the test accounts made available by the
  * Ethereum client
  * See docs: https://www.trufflesuite.com/docs/truffle/testing/writing-tests-in-javascript
  */
-contract("DTFactory", function (/* accounts */) {
+contract("TTFactory", function (/* accounts */) {
   it("should add one to Count", async function () {
     factory = await TTFactory.deployed();
     let countbefore = await factory.getCurrentTokenCount.call();

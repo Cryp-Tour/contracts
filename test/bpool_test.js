@@ -6,8 +6,11 @@ const bpool = artifacts.require("bpool");
  * See docs: https://www.trufflesuite.com/docs/truffle/testing/writing-tests-in-javascript
  */
 contract("bpool", function (/* accounts */) {
-  it("should assert true", async function () {
-    // await bpool.deployed();
-    return assert.isTrue(true);
+  it("is deployed", async function () {
+    let contr = undefined;
+    try {
+      contr = await bpool.deployed();
+    } catch (error) {}
+    return assert.notEqual(contr, undefined);
   });
 });

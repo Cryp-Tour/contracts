@@ -1,4 +1,4 @@
-const TTFactory = artifacts.require("TTFactory");
+const TTFactory = artifacts.require("TourTokenFactory");
 
 /*
  * uncomment accounts to access the test accounts made available by the
@@ -9,8 +9,10 @@ contract("TTFactory", function (/* accounts */) {
   it("should add one to Count", async function () {
     factory = await TTFactory.deployed();
     let countbefore = await factory.getCurrentTokenCount.call();
-    let newtoken = await factory.createToken("1234", "TOUR1234", "TOUR1234", 10)
+    console.log(countbefore)
+    await factory.createToken("1234", "TOUR1234", "TOUR1234", 10)
     let countafter = await factory.getCurrentTokenCount.call();
-    return assert.equal(countbefore + 1, countafter);
+    console.log(countafter)
+    return assert.equal(countbefore.toNumber() + 1, countafter);
   });
 });

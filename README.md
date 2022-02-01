@@ -1,5 +1,5 @@
 # :scroll: Cryp-Tour Contracts 
-## Overview
+## :stars: Overview
 
  - :books: [provider-js](https://github.com/Cryp-Tour/provider-js): NodeJS-Module for listening to newly created Datasets
  - :books: [web-lib](https://github.com/Cryp-Tour/web-lib): Browser-Library for interation with CrypTour-Contracts
@@ -19,3 +19,11 @@ Deploy them using:
 ```
 truffle deploy
 ```
+
+## :chart_with_upwards_trend: Testing
+Test using truffle:
+```
+truffle test
+```
+
+

@@ -1,6 +1,8 @@
+// SPDX-License-Identifier: GNU
+
 import "../../BNum.sol";
 
-pragma solidity 0.5.12;
+pragma solidity 0.8.6;
 
 contract TBPoolJoinPool is BNum {
 
@@ -10,7 +12,7 @@ contract TBPoolJoinPool is BNum {
     // A bug is found if poolAmountOut is greater than 0
     // And tokenAmountIn is 0
     function joinPool(uint poolAmountOut, uint poolTotal, uint _records_t_balance)
-        public returns(uint)
+        public
     {
         // We constraint poolTotal and _records_t_balance
         // To have "realistic" values

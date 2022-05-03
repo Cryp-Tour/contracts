@@ -53,6 +53,12 @@ contract BPool is BBronze, BToken, BMath {
         bytes           data
     ) anonymous;
 
+    event LOG_INIT(
+        address[] tokens,
+        address pool,
+        address owner
+    );
+
     modifier _logs_() {
         emit LOG_CALL(msg.sig, msg.sender, msg.data);
         _;
@@ -237,6 +243,8 @@ contract BPool is BBronze, BToken, BMath {
 
         _mintPoolShare(INIT_POOL_SUPPLY);
         _pushPoolShare(msg.sender, INIT_POOL_SUPPLY);
+
+        emit LOG_INIT(_tokens, address(this), _controller);
     }
 
 

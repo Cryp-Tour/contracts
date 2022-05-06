@@ -243,6 +243,7 @@ contract TourTokenTemplate is ITourTokenAdditional, ERC20 {
     )
         external
     {
+        require(amount >= BASE, "Amount must be at least 1");
         uint256 marketFee = 0;
         uint256 communityFee = calculateFee(
             amount, 

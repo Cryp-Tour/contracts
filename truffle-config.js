@@ -1,3 +1,5 @@
+
+const HDWalletProvider  = require("truffle-hdwallet-provider-privkey");
 /**
  * Use this file to configure your truffle project. It's seeded with some
  * common settings for different networks and features like migrations,
@@ -20,8 +22,8 @@
 
 // const HDWalletProvider = require('@truffle/hdwallet-provider');
 //
-// const fs = require('fs');
-// const mnemonic = fs.readFileSync(".secret").toString().trim();
+const fs = require('fs');
+const privkey = fs.readFileSync(".secret").toString().trim();
 
 module.exports = {
   /**
@@ -41,11 +43,20 @@ module.exports = {
     // tab if you use this network and you must also set the `host`, `port` and `network_id`
     // options below to some value.
     //
-    // development: {
-    //  host: "127.0.0.1",     // Localhost (default: none)
-    //  port: 8545,            // Standard Ethereum port (default: none)
-    //  network_id: "*",       // Any network (default: none)
-    // },
+     development: {
+      host: "127.0.0.1",     // Localhost (default: none)
+      port: 7545,            // Standard Ethereum port (default: none)
+      network_id: "*",       // Any network (default: none)
+     },
+     evan: {
+       host: "https://testcore.evan.network",
+       port: 8545,
+       gasPrice: 200000000000,
+       network_id: "508674158",
+       from: "0x31c1Ee19b6820D0193f7677a239bb738cF8a7816",
+       provider: () => { return new HDWalletProvider([privkey], "https://testcore.evan.network") },
+       networkCheckTimeout: 99999999
+     }
     // Another network with more advanced options...
     // advanced: {
     // port: 8777,             // Custom port
